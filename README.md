@@ -27,13 +27,13 @@
 ## Installation
 
 ```bash
-npm install sslcommerz-sdk
+npm install sslcommerz-sdk-ts
 ```
 
 ## Quick Start
 
 ```typescript
-import SSLCommerzPayment from 'sslcommerz-sdk'
+import SSLCommerzPayment from 'sslcommerz-sdk-ts'
 
 const sslcz = new SSLCommerzPayment(
   'your_store_id',
@@ -104,7 +104,7 @@ SSLCOMMERZ_IS_LIVE=false
 
 ```typescript
 // config/sslcommerz.config.ts
-import SSLCommerzPayment from 'sslcommerz-sdk'
+import SSLCommerzPayment from 'sslcommerz-sdk-ts'
 
 const store_id = process.env.SSLCOMMERZ_STORE_ID!
 const store_passwd = process.env.SSLCOMMERZ_STORE_PASSWORD!
@@ -122,7 +122,7 @@ import { body, query, validationResult } from 'express-validator'
 import { sslcz } from '../config/sslcommerz.config'
 import { generateTranId } from '../utils/tran-id.util'
 import { catchAsync } from '../utils/catch-async.util'
-import type { PaymentInitData } from 'sslcommerz-sdk'
+import type { PaymentInitData } from 'sslcommerz-sdk-ts'
 
 const router = Router()
 
@@ -342,7 +342,7 @@ export function catchAsync(fn: (req: Request, res: Response, next: NextFunction)
 ```typescript
 // middleware/error-handler.middleware.ts
 import { Request, Response, NextFunction } from 'express'
-import { SSLCommerzError, ValidationError, NetworkError, APIError } from 'sslcommerz-sdk'
+import { SSLCommerzError, ValidationError, NetworkError, APIError } from 'sslcommerz-sdk-ts'
 
 export function errorHandler(err: Error, req: Request, res: Response, next: NextFunction) {
   if (err instanceof ValidationError) {
@@ -425,7 +425,7 @@ app.listen(PORT, () => {
 ```typescript
 // server.ts - Minimal complete example
 import express from 'express'
-import SSLCommerzPayment from 'sslcommerz-sdk'
+import SSLCommerzPayment from 'sslcommerz-sdk-ts'
 
 const app = express()
 app.use(express.json())
@@ -567,7 +567,7 @@ import SSLCommerzPayment, {
   RefundQueryData,
   TransactionQueryByTransactionIdData,
   TransactionQueryBySessionIdData,
-} from 'sslcommerz-sdk'
+} from 'sslcommerz-sdk-ts'
 
 @Injectable()
 export class SSLCommerzService {
@@ -840,7 +840,7 @@ export class TransactionQueryBySessionIdDto {
 // sslcommerz/interceptors/sslcommerz-error.interceptor.ts
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler, HttpException, HttpStatus } from '@nestjs/common'
 import { Observable, catchError, throwError } from 'rxjs'
-import { SSLCommerzError, ValidationError, NetworkError, APIError } from 'sslcommerz-sdk'
+import { SSLCommerzError, ValidationError, NetworkError, APIError } from 'sslcommerz-sdk-ts'
 
 @Injectable()
 export class SSLCommerzErrorInterceptor implements NestInterceptor {
@@ -1097,7 +1097,7 @@ Queries transaction status by session ID.
 
 ## Error Handling
 
-All methods throw typed errors from the `sslcommerz-sdk` package:
+All methods throw typed errors from the `sslcommerz-sdk-ts` package:
 
 | Error Class | When Thrown | HTTP Status |
 |-------------|-------------|-------------|
@@ -1108,7 +1108,7 @@ All methods throw typed errors from the `sslcommerz-sdk` package:
 | `SSLCommerzError` | Base class for all SDK errors | — |
 
 ```typescript
-import { ValidationError, NetworkError, APIError, SSLCommerzError } from 'sslcommerz-sdk'
+import { ValidationError, NetworkError, APIError, SSLCommerzError } from 'sslcommerz-sdk-ts'
 
 try {
   const result = await sslcz.init(data)

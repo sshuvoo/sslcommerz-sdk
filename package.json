@@ -1,5 +1,5 @@
 {
-  "name": "sslcommerz-sdk",
+  "name": "sslcommerz-sdk-ts",
   "version": "1.0.0",
   "description": "SSLCommerz Node.js TypeScript SDK — Payment gateway integration for Bangladesh. Supports payment initiation, validation, refunds, and transaction queries. Modern ESM, strict typing, zero runtime dependencies.",
   "type": "module",
@@ -26,6 +26,7 @@
   },
   "keywords": [
     "sslcommerz",
+    "sslcommerz-sdk-ts",
     "sslcommerz-sdk",
     "sslcommerz-lts",
     "payment",
