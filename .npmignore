@@ -1,0 +1,13 @@
+.idea/
+.vscode/
+coverage/
+dist/
+build/
+*.tgz
+.git/
+.github/
+test/
+tests/
+__tests__/
+*.test.js
+*.spec.js
